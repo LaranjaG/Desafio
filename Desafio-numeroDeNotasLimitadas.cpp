@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include <stdlib.h>
 
-//Notas disponivel no caixa
+// Notas disponivel no caixa, neste o caixa vai ter um n√∫mero de notas limite de cada tipo de nota para executar o saque
 // int notasCemC = 10, notasCinquentaC = 20, notasVinteC = 30, notasDezC = 200, notasCincoC = 40, notasDoisC = 100;
 
 int qtdNotas[6] = {100, 40, 200, 30, 20, 10}; //notas de 2, 5, 10, 20, 50 e 100 disponiveis no caixa
@@ -78,6 +78,10 @@ int qtdNotasUnicas(int nota, int valor){
 }
 
 void saqueNotasUnicas(int valor){
+	/*
+	 * O saque de notas unicas permite o usu√°rio fazer saque de apenas um valor de nota, caso esse valor n√£o seja o suficiente o saque n√£o ser√° executado!
+	 */
+	
 	int qtd = 0;
 	
 	if(valor % 100 == 0){
@@ -126,7 +130,7 @@ void saqueNotasUnicas(int valor){
 void saqueNotasAleatorias(int valor){
 	
 	/**
-	* Est· opÁ„o como È utilizado um valor random para sua execuss„o pode gerar longos loops
+	* Est√° op√ß√£o como √© utilizado um valor random para sua execuss√£o pode gerar longos loops
 	*/
 	
 	int notaCem = 0, 
@@ -152,7 +156,7 @@ void saqueNotasAleatorias(int valor){
 				case 3: notaVinte++; break;
 				case 4: notaCinquenta++; break;
 				case 5: notaCem++; break;
-				default: printf("Random n„o deveria ter gerado esse index!"); break;
+				default: printf("Random n√£o deveria ter gerado esse index!"); break;
 			}
 			
 			qtdNotas[index]--;
@@ -183,7 +187,7 @@ void saqueNotasAleatorias(int valor){
 int main(void){
 	
 	/** 
-	 * o usu·rio pode sacar valores divisiveis por 5 ou 2, j· que o caixa n„o disponibiliza notas de 1
+	 * o usu√°rio pode sacar valores divisiveis por 5 ou 2, j√° que o caixa n√£o disponibiliza notas de 1
 	 */
 	int valorSaque = 0;
 	int montanteDinheiro = 5000; // Total de dinheiro disponivel no caixa
@@ -209,7 +213,7 @@ int main(void){
 				   "\n1 - Saque das maiores notas para menores"
 				   "\n2 - Saque de notas de um mesmo valor para a quantia desejada"
 				   "\n3 - Saque de notas aleatorias"
-				   "\nOpÁ„o: ");
+				   "\nOp√ß√£o: ");
 					scanf("%d", &opcao);
 			
 			switch(opcao){
@@ -223,7 +227,7 @@ int main(void){
 					saqueNotasAleatorias(valorSaque);
 					break;
 				default:
-					printf("OpÁ„o inv·lida!");
+					printf("Op√ß√£o inv√°lida!");
 					break;
 			}
 			printf("\n-------------Apos o Saque:-------------");
