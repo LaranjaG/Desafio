@@ -1,51 +1,22 @@
 #include<stdio.h>
 #include <stdlib.h>
 
-// Notas disponivel no caixa, neste o caixa vai ter um n˙mero de notas limite de cada tipo de nota para executar o saque
+// Notas disponivel no caixa, neste o caixa vai ter um n√∫mero de notas limite de cada tipo de nota para executar o saque
 // int notasCemC = 10, notasCinquentaC = 20, notasVinteC = 30, notasDezC = 200, notasCincoC = 40, notasDoisC = 100;
 
 int qtdNotas[6] = {100, 40, 200, 30, 20, 10}; //notas de 2, 5, 10, 20, 50 e 100 disponiveis no caixa
-
-int decontarValor(int desconto, int valor){
-	return valor - desconto;
-}
-
-void saqueNotasMaioresParaMenores(int valor){
-	int notaCem = 0, 
+int notaCem = 0, 
 		notaCinquenta = 0, 
 		notaVinte = 0, 
 		notaDez = 0, 
 		notaCinco = 0, 
 		notaDois = 0;
-	
-	while(valor != 0){
-		if(valor >= 100 && qtdNotas[5] != 0){
-			notaCem++;
-			qtdNotas[5]--;
-			valor = decontarValor(100, valor);
-		} else if(valor >= 50 && qtdNotas[4] != 0){
-			notaCinquenta++;
-			qtdNotas[4]--;
-			valor = decontarValor(50, valor);
-		} else if(valor >= 20 && qtdNotas[3] != 0){
-			notaVinte++;
-			qtdNotas[3]--;
-			valor = decontarValor(20, valor);
-		} else if(valor >= 10 && qtdNotas[2] != 0){
-			notaDez++;
-			qtdNotas[2]--;
-			valor = decontarValor(10, valor);
-		} else if(valor >= 5 && qtdNotas[1] != 0){	
-			notaCinco++;
-			qtdNotas[1]--;
-			valor = decontarValor(5, valor);
-		} else if(qtdNotas[0] != 0){
-			notaDois++;
-			qtdNotas[0]--;
-			valor = decontarValor(2, valor);
-		}
-	}
-	
+
+int decontarValor(int desconto, int valor){
+	return valor - desconto;
+}
+
+void mostrar(){
 	if(notaCem != 0){
 		printf("\nNotas de 100: %d", notaCem);
 	}
@@ -66,6 +37,39 @@ void saqueNotasMaioresParaMenores(int valor){
 	}
 }
 
+void saqueNotasMaioresParaMenores(int valor){
+	
+	while(valor >= 0){
+		if(valor >= 100 && qtdNotas[5] != 0){
+			notaCem++;
+			qtdNotas[5]--;
+			valor -= 100;
+		} else if(valor >= 50 && qtdNotas[4] != 0){
+			notaCinquenta++;
+			qtdNotas[4]--;
+			valor -= 50;
+		} else if(valor >= 20 && qtdNotas[3] != 0){
+			notaVinte++;
+			qtdNotas[3]--;
+			valor -= 20;
+		} else if(valor >= 10 && qtdNotas[2] != 0){
+			notaDez++;
+			qtdNotas[2]--;
+			valor -= 10;
+		} else if(valor >= 5 && qtdNotas[1] != 0){	
+			notaCinco++;
+			qtdNotas[1]--;
+			valor -= 5;
+		} else if(qtdNotas[0] != 0){
+			notaDois++;
+			qtdNotas[0]--;
+			valor -= 2;
+		}
+	}
+	
+	mostrar();
+}
+
 int qtdNotasUnicas(int nota, int valor){
 	int qtd = 0;
 	
@@ -79,7 +83,7 @@ int qtdNotasUnicas(int nota, int valor){
 
 void saqueNotasUnicas(int valor){
 	/*
-	 * O saque de notas unicas permite o usu·rio fazer saque de apenas um valor de nota, caso esse valor n„o seja o suficiente o saque n„o ser· executado!
+	 * O saque de notas unicas permite o usu√°rio fazer saque de apenas um valor de nota, caso esse valor n√£o seja o suficiente o saque n√£o ser√° executado!
 	 */
 	
 	int qtd = 0;
@@ -126,63 +130,42 @@ void saqueNotasUnicas(int valor){
 void saqueNotasAleatorias(int valor){
 	
 	/**
-	* Est· opÁ„o como È utilizado um valor random para sua execuss„o pode gerar longos loops
+	* Est√° op√ß√£o como √© utilizado um valor random para sua execuss√£o pode gerar longos loops
 	*/
-	
-	int notaCem = 0, 
-		notaCinquenta = 0, 
-		notaVinte = 0, 
-		notaDez = 0, 
-		notaCinco = 0, 
-		notaDois = 0;
 		
 	int notas[6] = {2, 5, 10, 20, 50, 100}; 
 	
-	while(valor != 0){
+	while(valor >= 0){
 		int index = rand() % 6;
 		int notaSaque = notas[index];
 		
-//		printf("\n%d", notaSaque);
-		
-		if(valor % notaSaque == 0 && qtdNotas[index] != 0){
-			switch(index){
-				case 0: notaDois++; break;
-				case 1: notaCinco++; break;
-				case 2: notaDez++; break;
-				case 3: notaVinte++; break;
-				case 4: notaCinquenta++; break;
-				case 5: notaCem++; break;
-				default: printf("Random n„o deveria ter gerado esse index!"); break;
-			}
+		int proximoValor = valor - notaSaque;
+
+		if(((valor % notaSaque == 0) || (valor >= notaSaque)) && (qtdNotas[index] != 0)){
 			
-			qtdNotas[index]--;
-			valor = decontarValor(notaSaque, valor);
+			if((proximoValor > 3) || ((proximoValor % 2) == 0) || (proximoValor == 0)){
+				switch(index){
+					case 0: notaDois++; break;
+					case 1: notaCinco++; break;
+					case 2: notaDez++; break;
+					case 3: notaVinte++; break;
+					case 4: notaCinquenta++; break;
+					case 5: notaCem++; break;
+					default: printf("Random n√£o deveria ter gerado esse index!"); break;
+				}
+				
+				qtdNotas[index]--;
+				valor -= notaSaque;
+			} else continue;
 		} else continue;
 	}
 	
-	if(notaCem != 0){
-		printf("\nNotas de 100: %d", notaCem);
-	}
-	if(notaCinquenta != 0){
-		printf("\nNotas de 50: %d", notaCinquenta);
-	}
-	if(notaVinte != 0){
-		printf("\nNotas de 20: %d", notaVinte);
-	}
-	if(notaDez != 0){
-		printf("\nNotas de 10: %d", notaDez);
-	}
-	if(notaCinco != 0){
-		printf("\nNotas de 5: %d", notaCinco);
-	}
-	if(notaDois != 0){
-		printf("\nNotas de 2: %d", notaDois);
-	}
+	mostrar();
 }
 
 bool verificarSeTemNotasUnicasNecessarias(int valor){
 	/*
-	 * Verifica se a opÁ„o de saque do tipo 3 est· disponivel
+	 * Verifica se a op√ß√£o de saque do tipo 3 est√° disponivel
 	 */
 	
 	int qtd = 0;
@@ -225,7 +208,7 @@ bool verificarSeTemNotasUnicasNecessarias(int valor){
 int main(void){
 	
 	/** 
-	 * o usu·rio pode sacar valores divisiveis por 5 ou 2, j· que o caixa n„o disponibiliza notas de 1
+	 * o usu√°rio pode sacar valores divisiveis por 5 ou 2, j√° que o caixa n√£o disponibiliza notas de 1
 	 */
 	int valorSaque = 0;
 	int montanteDinheiro = 5000; // Total de dinheiro disponivel no caixa
@@ -241,18 +224,21 @@ int main(void){
 	printf("Valor que deseja sacar (um valor inteiro e divisivel por 2 ou 5): ");
 	scanf("%d", &valorSaque);
 	
+	bool executarSaque = (valorSaque % 2 == 0 || valorSaque % 5 == 0);
+	
 	//Formas de saque
 	if(valorSaque > 0 && montanteDinheiro >= valorSaque){	
-		if(valorSaque % 2 == 0 || valorSaque % 5 == 0){
+		if(executarSaque || valorSaque > 3){
 			montanteDinheiro -= valorSaque; //Desconta o valor sacado do dinheiro do caixa
-				
+//			printf("\nbool: %s\n", verificarSeTemNotasUnicasNecessarias(valorSaque));
 			int opcao;
 			printf("Opcoes de saque:" 
 				   "\n1 - Saque das maiores notas para menores"
-				   "\n2 - Saque de notas aleatorias");
-			printf((verificarSeTemNotasUnicasNecessarias(valorSaque)) ? "\n3 - Saque de notas de um mesmo valor para a quantia desejada" : "");
-			printf("\nopcao: ");	
-			scanf("%d", &opcao);
+				   "\n2 - Saque de notas aleatorias"
+				   "%s"
+				   "\nOp√ß√£o: ", 
+				   (executarSaque ? "\n3 - Saque de notas de um mesmo valor para a quantia desejada" : ""));
+					scanf("%d", &opcao);
 			
 			switch(opcao){
 				case 1:
@@ -262,14 +248,13 @@ int main(void){
 					saqueNotasAleatorias(valorSaque);
 					break;	
 				case 3:
-					if(verificarSeTemNotasUnicasNecessarias(valorSaque)){
+					if(verificarSeTemNotasUnicasNecessarias(valorSaque) && executarSaque)
 						saqueNotasUnicas(valorSaque); 
-					} else{
-						printf("OpÁ„o invalida, nao ha notas suficiente para essa operacao!");
-					}
+					else
+						printf("Op√ß√£o invalida, nao ha notas suficiente para essa operacao!");
 					break;
 				default:
-					printf("OpÁ„o inv·lida!");
+					printf("Op√ß√£o inv√°lida!");
 					break;
 			}
 			printf("\n-------------Apos o Saque:-------------");
@@ -281,7 +266,7 @@ int main(void){
 			
 			printf("\nMontante disponivel no caixa apos saque: %d", montanteDinheiro);
 		} else{
-			printf("O valor nao pode ser sacado! Entre com um valor divisivel por 5 ou 2 para realizar o saque!");
+			printf("O valor nao pode ser sacado! Entre com um valor divisivel por 5 ou 2 para realizar o saque ou maior que 3!");
 		}
 	} else{
 		printf((montanteDinheiro < valorSaque) ? "Caixa nao possui dinheiro para sacar esta quantia!" : "Para sacar o valor deve ser maior que 0!");
@@ -289,4 +274,3 @@ int main(void){
 	
 	return 0;
 }
-
