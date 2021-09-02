@@ -12,8 +12,8 @@ namespace WorkSpace___RR //Name space é opcional
             System.Console.WriteLine("Boa tarde");
 
             bool boolean = true;
-            char genero = "F";
-            char letra = "\u0041";
+            char genero = 'F';
+            char letra = '\u0041';
             byte n1 = 126;
 
             object[] vetor = new object[12]; //Vetor
@@ -22,7 +22,7 @@ namespace WorkSpace___RR //Name space é opcional
             vetor[0] = boolean;
             list.Add(boolean);
             SByte x = 110; //Agrega valores de -128 até 127
-            byte n1 = 126; //Aceita números de 0 a 255
+            //byte n1 = 126; //Aceita números de 0 a 255
             Console.WriteLine(x);
             Console.WriteLine(n1);
 
