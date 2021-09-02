@@ -1,0 +1,16 @@
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\bin\Debug\net5.0\WorkSpace - RR.exe
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\bin\Debug\net5.0\WorkSpace - RR.deps.json
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\bin\Debug\net5.0\WorkSpace - RR.runtimeconfig.json
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\bin\Debug\net5.0\WorkSpace - RR.runtimeconfig.dev.json
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\bin\Debug\net5.0\WorkSpace - RR.dll
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\bin\Debug\net5.0\ref\WorkSpace - RR.dll
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\bin\Debug\net5.0\WorkSpace - RR.pdb
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\obj\Debug\net5.0\WorkSpace - RR.csprojAssemblyReference.cache
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\obj\Debug\net5.0\WorkSpace - RR.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\obj\Debug\net5.0\WorkSpace - RR.AssemblyInfoInputs.cache
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\obj\Debug\net5.0\WorkSpace - RR.AssemblyInfo.cs
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\obj\Debug\net5.0\WorkSpace - RR.csproj.CoreCompileInputs.cache
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\obj\Debug\net5.0\WorkSpace - RR.dll
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\obj\Debug\net5.0\ref\WorkSpace - RR.dll
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\obj\Debug\net5.0\WorkSpace - RR.pdb
+C:\Users\joaor\OneDrive\Área de Trabalho\WorkSpace - RR\firstTime\obj\Debug\net5.0\WorkSpace - RR.genruntimeconfig.cache
